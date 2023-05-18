@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
+import { CartsService } from 'src/app/cart/services/carts.service';
 
 @Component({
   selector: 'app-allproducts',
@@ -9,12 +10,14 @@ import { ProductsService } from '../../services/products.service';
 export class AllproductsComponent {
   Products!: any[];
   Categories!: any[];
-
-  constructor(private productsService: ProductsService) {}
+  cartProducts!: any[];
+  constructor(private productsService: ProductsService,private cartsService:CartsService) {}
 
   ngOnInit() {
     this.getAllProducts();
     this.getAllcategories();
+
+    // this.cartsService
   }
 
   getAllProducts() {
@@ -46,5 +49,21 @@ export class AllproductsComponent {
     } else {
       this.getAllProductsCategories(event.target.value);
     }
+  }
+
+  addToCart(event: any) {
+    // if ('cart' in localStorage) {
+    //   console.log(this.cartProducts);
+    //   this.cartProducts = JSON.parse(localStorage.getItem('cart')!);
+    //   this.cartProducts.push(event);
+    //   console.log(this.cartProducts);
+
+    //   localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+    // } else {
+    //   this.cartProducts.push(event);
+    //   localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+    // }
+this.cartsService.addtocart(event)
+
   }
 }

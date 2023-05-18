@@ -1,13 +1,27 @@
-<p>Categories:</p>
+<!-- <p>Categories:</p>
 <select name="categories" class="w-25 my-3" (change)="filter($event)">
   <option value="all">All</option>
   <option value="{{ Category }}" *ngFor="let Category of Categories">
     {{ Category }}
   </option>
-</select>
+</select> -->
+<!-- <app-select
+  [data]="Categories"
+  [title]="'Categories'"
+  (selectedValue)="filter($event)"
+></app-select> -->
 
+<!-- <app-select></app-select> -->
+<!-- <app-cart></app-cart> -->
 <div class="row row-cols-1 row-cols-md-4 g-4">
-  <div class="col my-5" *ngFor="let item of Products">
+  <div class="my-5" *ngFor="let item of Products">
+    <app-product-item
+      [data]="item"
+      (item)="addToCart($event)"
+    ></app-product-item>
+  </div>
+
+  <!-- <div class="col my-5" *ngFor="let item of Products">
     <div class="card h-100 mx-2">
       <img src="{{ item.image }}" class="card-img-top" alt="..." />
       <div class="card-body p-2">
@@ -24,5 +38,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
