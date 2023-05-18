@@ -38,7 +38,7 @@ export class AllproductsComponent {
     );
   }
 
-  filterCategory(event: any) {
+  filter(event: any) {
     console.log(event.target.value);
 
     if (event.target.value == 'all') {
