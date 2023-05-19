@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.addtional {
+  background-color: rgba(30, 11, 43, 0.486);
+}
+
+button,
+.price {
+  background-color: blueviolet;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  text-transform: capitalize;
+  font-weight: 600;
+  transition: all 0.2s;
+  margin: 2px;
+}
+
+button:hover {
+  background-color: tomato;
+  color: white;
+}
+
+.price {
+  background-color: #eee;
+  width: fit-content;
+}
+
+.description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card img {
+  width: 100%;
+  display: block;
+  height: 300px;
+}
+
+.card-body {
+  background-color: #eee;
+}
+
+.card_btn {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}

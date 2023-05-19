@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './product/products.module';
 import { CartsModule } from './cart/carts.module';
+import { StockPipe } from './shared/pipes/stock.pipe';
 
 @NgModule({
   declarations: [AppComponent],

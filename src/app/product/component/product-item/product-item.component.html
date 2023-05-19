@@ -1,5 +1,5 @@
 <div class="card h-100 mx-2">
-  <img src="{{ data?.image }}" class="card-img-top" alt="..." />
+  <img src="{{ data?.thumbnail }}" class="card-img-top" alt="..." />
   <div class="card-body p-2">
     <h5 class="card-title">{{ data?.title }}</h5>
     <p class="card-text description">
@@ -8,9 +8,17 @@
   </div>
   <div class="addtional p-2">
     <div class="price p-2 m-2 border">{{ data?.price }} EGP</div>
+    <div
+      class="price p-2 m-2 border"
+      [ngStyle]="{ color: data?.stock <= 0 ? 'red' : 'green' }"
+    >
+      {{ data?.stock | stock }}
+    </div>
     <div class="card_btn text-center">
-      <button class="" (click)="add(data)">add to cart</button>
-      <button class="">show details</button>
+      <button class="" (click)="add(data)" (click)="addNumProductCart()">
+        add to cart
+      </button>
+      <button class="" (click)="redirectDetails(data.id)">show details</button>
     </div>
   </div>
 </div>
