@@ -9,13 +9,12 @@ import { Component } from '@angular/core';
 })
 export class CartComponent {
   CartProducts!: any[];
-  numProductInCart: number = 0;
+  numProductInCart!: number;
   totalPrice: number = 0;
   constructor(
     private cartsService: CartsService,
     private productsService: ProductsService
   ) {}
-
   ngOnInit() {
     //GET PRODUCT THAT STORED IN CART
     this.cartsService
@@ -29,7 +28,7 @@ export class CartComponent {
       .getNumProductInCart()
       .subscribe((res) => (this.numProductInCart = res));
     // console.log('numProductInCart before plus', this.numProductInCart);
-    this.cartsService.setNumProductInCart(this.numProductInCart++);
+    this.cartsService.setNumProductInCart(++this.numProductInCart);
     // console.log('numProductInCart after plus', this.numProductInCart);
   }
 
@@ -39,7 +38,7 @@ export class CartComponent {
       .getNumProductInCart()
       .subscribe((res) => (this.numProductInCart = res));
     // console.log('numProductInCart before sub', this.numProductInCart);
-    this.cartsService.setNumProductInCart(this.numProductInCart--);
+    this.cartsService.setNumProductInCart(--this.numProductInCart);
     // console.log('numProductInCart after sub', this.numProductInCart);
   }
 
@@ -63,7 +62,12 @@ export class CartComponent {
 
   //REMOVE PRODUCT FROM THE CART
   removeProduct(item: any) {
-    let indexItem = this.CartProducts.findIndex((elm) => elm.id == item.id);
-    this.CartProducts.splice(indexItem, 1);
+    // let indexItem = this.CartProducts.findIndex((elm) => elm.id == item.id);
+    // this.CartProducts.splice(indexItem, 1);
+    // this.cartsService
+    //   .getNumProductInCart()
+    //   .subscribe((res) => (this.numProductInCart = res));
+
+    this.cartsService.removeProduct(item);
   }
 }

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   numberProductInCart: number = 0;
-
+  color: string = 'red';
   constructor(private cartsService: CartsService) {}
 
   ngOnInit() {
@@ -33,5 +33,3 @@ export class NavbarComponent {
   // this.cartsService.setNumProductInCart(this.numberProductInCart--);
   // }
 }
-
-

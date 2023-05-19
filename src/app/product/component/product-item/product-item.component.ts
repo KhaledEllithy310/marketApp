@@ -24,6 +24,7 @@ export class ProductItemComponent {
   redirectDetails(id: number) {
     this.Router.navigate(['/ProductDetails', id]);
   }
+  
   addNumProductCart() {
     this.cartsService
       .getNumProductInCart()
